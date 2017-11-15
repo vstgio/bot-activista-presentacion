@@ -1,0 +1,284 @@
+/* ============================================================
+  RESET - http://meyerweb.com/eric/tools/css/reset/
+============================================================ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ============================================================
+  BOX SIZING & CLEARFIX
+============================================================ */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ============================================================
+  HTML & BODY
+============================================================ */
+body {
+  background-color: #b4b4b4;
+  color: #1d1d26;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+  PRIMARY STRUCTURE
+============================================================ */
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+main {
+  display: block;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 800px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container.title p {
+  color: white;
+  text-transform: uppercase;
+}
+
+@media all and (min-width: 600px) {
+  
+}
+
+/* ============================================================
+  SECTIONS
+============================================================ */
+section.module:last-child {
+  /*margin-bottom: 10px;*/
+}
+section.module h2 {
+  color: #000;
+  font-size: 65px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 60px;
+  text-transform: uppercase;
+}
+section.module p {
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  margin-bottom: 22px;
+  max-width: 500px;
+  margin: auto;
+}
+section.module p:last-child {
+  margin-bottom: 30px;
+}
+section.module.content {
+  padding: 40px 0;
+  height: 100vh;
+}
+section.module.parallax {
+  height: 100vh;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+section.module.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 80px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+section.module.parallax h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+section.module.parallax-1 {
+  background-image: url("../img/01.jpg");
+}
+section.module.parallax-2 {
+  background-image: url("../img/02.jpg");
+}
+section.module.parallax-3 {
+  background-image: url("../img/03.jpg");
+}
+section.module.parallax-4 {
+  background-image: url("../img/04.jpg");
+}
+
+@media all and (min-width: 600px) {
+  section.module h2 {
+    font-size: 65px;
+  }
+  section.module p {
+    font-size: 20px;
+  }
+  section.module.parallax h1 {
+    font-size: 96px;
+  }
+}
+@media all and (min-width: 960px) {
+  section.module.parallax h1 {
+    font-size: 140px;
+    line-height: 150px;
+  }
+}
+
+/* ============================================================
+  CUSTOM CODE
+============================================================ */
+#idvisual {
+  position: fixed;
+  width: 120px;
+  margin-top: 90vh;
+  margin-left: 10%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.imagemTexto {
+  width: 100%;
+  margin: 20px 0 36px 0;
+}
+
+.quote {
+  position: absolute;
+  width: 60%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+}
+
+/* COMPARTILHAMENTO */
+#caixaBotoesDeSharePaginaCompleta {
+  position: fixed;
+  width: 85px;
+  height: 40px;
+  top: 10px;
+  right: 50px;
+  -webkit-transition: top .3s;
+      transition: top .3s;
+}
+.botaoSharePaginaCompleta {
+  position: absolute;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  background: transparent no-repeat center center;
+  background-size: 18px;
+}
+
+#titulo {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 2px;
+  font-size:40px;
+  margin-bottom: 0px;
+  margin-left: 14px;
+}
+
+#charts {
+  text-align: center;
+
+}
+.chartTitle {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.legend {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+#chartContainer {
+  max-width: 1400px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+#chartContainer h2 {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
