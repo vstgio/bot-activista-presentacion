@@ -309,3 +309,8 @@ section.module.parallax-5 {
   float: left;
   opacity: 0;
 }
+
+#mockup {
+  width: 955px;
+  height: 503px;
+}
