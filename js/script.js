@@ -48,9 +48,10 @@ $('html').keydown(function(e){
 			actualSection = actualSection + 1;
 			$.when($("html, body").animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow')).then(function() {
 				if (actualSection == 4 && !chart_visible) {
+          drawMap(box_width/COLUMNS+margin.left+margin.right, box_height/ROWS + margin.top + margin.bottom);
 					$.when(drawBars()).then(function() {
 						drawValues();
-            drawMap();
+            $("#map").animate({opacity : "1"}, 2000);
 					});
 					chart_visible = true;
 				}
@@ -215,7 +216,10 @@ function calculatePerc(audience, location_total) {
   return result;
 }
 
-function drawMap () {
+function drawMap (width, height) {
+  $("#map").width(width*2);
+  $("#map").height((height*2) - 10);
+
   var center = [40.410527, -3.693791];
   var map = L.map('map').setView(center, 14);
   var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png');
