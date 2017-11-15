@@ -106,6 +106,7 @@ main {
 .container.title p {
   color: white;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 @media all and (min-width: 600px) {
@@ -120,7 +121,7 @@ section.module:last-child {
 }
 section.module h2 {
   color: #000;
-  font-size: 65px;
+  font-size: 64px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 10px;
@@ -180,10 +181,13 @@ section.module.parallax-3 {
 section.module.parallax-4 {
   background-image: url("../img/04.jpg");
 }
+section.module.parallax-5 {
+  background-image: url("../img/05.jpg");
+}
 
 @media all and (min-width: 600px) {
   section.module h2 {
-    font-size: 65px;
+    font-size: 64px;
   }
   section.module p {
     font-size: 20px;
@@ -255,6 +259,8 @@ section.module.parallax-4 {
 
 #charts {
   text-align: center;
+  width: 50%;
+  float: left;
 
 }
 .chartTitle {
@@ -269,7 +275,7 @@ section.module.parallax-4 {
 }
 
 #chartContainer {
-  max-width: 1400px;
+  max-width: 100vw;
   position: relative;
   top: 50%;
   left: 50%;
@@ -281,4 +287,24 @@ section.module.parallax-4 {
 #chartContainer h2 {
   font-size: 50px;
   margin-bottom: 30px;
+}
+
+#logo {
+  position: fixed;
+  width: 8%;
+  height: 8%;
+  right: 20px;
+  bottom: 10px;
+}
+
+#legendas {
+  text-align: center;
+  clear: both;
+}
+
+#map {
+  width: 48%;
+  background-color: gray;
+  height: 400px;
+  float: left;
 }

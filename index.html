@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>BOT ACTIVISTA</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha256-LcmP8hlMTofQrGU6W2q3tUnDnDZ1QVraxfMkP060ekM=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:400,700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -16,13 +17,14 @@
     <div class="wrapper">
       <!-- ENVOLVE O CONTEUDO E O SEPARA DA BARRA DE NAVEGACAO E DO FOOTER-->
       <main>
-          <section class="module parallax parallax-1" id="section01">
+          <section class="module parallax parallax-1" id="section1">
             <div class="container">
               <h1>BOT ACTIVISTA</h1>
             </div>
+            <img id="logo" src="img/medialabprado_logo.svg">
           </section>
 
-          <section class="module content" id="section02">
+          <section class="module content" id="section2">
             <div class="container">
               <h2>UMA FERRAMENTA<br> PARA PEQUENAS CAMPANHAS</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil consequuntur, nesciunt dicta, esse rem ducimus itaque quis. Adipisci ullam nam qui illum debitis delectus, repudiandae non dolorum!</p>
@@ -35,56 +37,66 @@
             </div>
           </section>
 
-          <section class="module parallax parallax-2" id="section03">
+          <section class="module parallax parallax-2" id="section3">
             <div class="container title">
               <h1>LOS DESAFIOS</h1>
               <p>una hipótesis y una api para desbravar.</p>
             </div>
           </section>
 
-          <section class="module content" style="height:100vh" id="section04">
+          <section class="module content" style="height:100vh" id="section4">
               <div id="chartContainer">
-                <h2>UM OLHAR SOBRE O CASO MEXICANO</h2>
+                <h2>UNA MIRADA SOBRE EL CASO MADRILEÑO</h2>
                 <div id="charts"></div>
+                <div id="map"></div>
+                <div id="legendas"></div>
               </div>
           </section>
 
-          <section class="module parallax parallax-3" id="section05">
+          <section class="module parallax parallax-3" id="section5">
             <div class="container title">
               <h1>LA HERRAMIENTA</h1>
               <p>una hipótesis y una api para desbravar.</p>
             </div>
           </section>
 
-          <section class="module content" id="section06">
+          <section class="module content" id="section6">
             <div class="container">
               <h2>Adipisci ullam nam <br>qui illum debitis</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil consequuntur, nesciunt dicta, esse rem ducimus itaque quis. Adipisci ullam nam qui illum debitis delectus, repudiandae non dolorum! Lorem ipsum dolor.</p>
             </div>
           </section>
 
-          <section class="module parallax parallax-4" id="section07">
+          <section class="module parallax parallax-4" id="section7">
             <div class="container title">
               <h1>¿Y DESPUÉS?</h1>
+              <p>DOS ELECCIONES POR DELANTE: MÉXICO Y BRASIL</p>
             </div>
           </section>
 
-          <section class="module content" id="section08">
+          <section class="module content" id="section8">
             <div class="container">
               <h2>Adipisci ullam nam <br>qui illum debitis</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil consequuntur, nesciunt dicta, esse rem ducimus itaque quis. Adipisci ullam nam qui illum debitis delectus, repudiandae non dolorum! Lorem ipsum dolor.</p>
             </div>
           </section>
 
-          <section class="module parallax parallax-5" id="section09">
+          <section class="module parallax parallax-5" id="section9">
             <div class="container title">
-              <h1>THANK YOU</h1>
-              <p>www.github.com</p>
+              <h1>GRACIAS</h1>
+            </div>
+          </section>
+
+          <section class="module content" id="section10">
+            <div class="container">
+              <h2>www.github.com/lianetoolkit/liane</h2>
+              <p>@markun | @miguelpeixe | @atenas_abilein | @davidnuneza | @garbolinoo | @guillermocroppi | @raquelgalvezo | @yurialeksndr</p>
             </div>
           </section>
 
       </main>  
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha256-kdEnCVOWosn3TNsGslxB8ffuKdrZoGQdIdPwh7W1CsE=" crossorigin="anonymous"></script>
     <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
