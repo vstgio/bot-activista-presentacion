@@ -77,7 +77,7 @@ function carregarDados(file) {
 
     all_data.forEach(function(d) {
       if (d.ages_ranges == AGE_RANGE) {
-        if (d.connections in data == false) { 
+        if (d.connections in data == false) {
           data[d.connections] = [];
         }
 
@@ -100,15 +100,15 @@ function drawAxis() {
         // append a 'group' element to 'svg'
         // moves the 'group' element to the top left margin
         chart = d3.select("#charts").append("svg")
-          
+
           .attr("width", box_width/COLUMNS + margin.left + margin.right)
           .attr("height", box_height/ROWS + margin.top + margin.bottom)
-          
+
           .append("g")
           .attr("id", key.replace(/\s/g, ''))
-          .attr("transform", 
+          .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
-          
+
         // Scale the range of the data in the domains
         x.domain(data[key].map(function(d) { return d.interests; }));
         y.domain([0, 50]);
@@ -123,7 +123,7 @@ function drawAxis() {
         chart.append("g")
         .call(d3.axisLeft(y));
 
-        // Add title    
+        // Add title
         chart.append("svg:text")
          .attr("class", "chartTitle")
          .attr("x", 5)
@@ -168,13 +168,13 @@ function drawBars() {
 		    .data(data[key])
 		    .enter().append("rect")
 		    .attr("class", "bar")
-		    
+
 		    .attr("x", function(d) { return x(d.interests); })
 		    .attr("width", x.bandwidth())
 
 		    .attr("y", function(d) { return y(0); })
 		    .attr("height", 0)
-		    
+
 		    .attr("fill",function(d,i){return colors(i)})
 
 		    .transition()
@@ -220,10 +220,19 @@ function drawMap (width, height) {
   $("#map").width(width*2);
   $("#map").height((height*2) - 10);
 
+  var destRadius = 1000;
+
   var center = [40.410527, -3.693791];
   var map = L.map('map').setView(center, 14);
   var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png');
-  var circle = L.circle(center, { radius: 1000, color:"#000", weight: 1 });
+  var circle = L.circle(center, { radius: 1, color:"#000", weight: 1 });
+  var cCircle = L.circle(center, { radius: 20, color: '#000', weight: 2, fillOpacity: 1});
   map.addLayer(layer);
   map.addLayer(circle);
+  map.addLayer(cCircle);
+
+  setTimeout(function() {
+    circle.setRadius(1000);
+  }, 1500);
+
 }

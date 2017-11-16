@@ -300,6 +300,11 @@ section.module.parallax-5 {
   float: left;
   opacity: 0;
 }
+#map svg path {
+  transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+}
 
 #mockup {
   width: 90vw;
