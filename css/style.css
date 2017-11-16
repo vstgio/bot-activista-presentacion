@@ -260,6 +260,14 @@ section.module.parallax-6 {
   float: left;
 }
 
+#charts text.chartTitle {
+  font-size: 1.4vw;
+}
+
+#legendas g.legend text {
+  font-size: 1.2vw;
+}
+
 #charts text.barValue {
   font-size: .8vw;
 }

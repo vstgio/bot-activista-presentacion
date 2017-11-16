@@ -26,11 +26,12 @@ var chart;
 var data = {};
 var chart_visible = false;
 var colors = d3.scaleOrdinal(d3.schemeCategory10);
+var animation_running = false;
 
 
 $(document).ready(function(){
   actualSection = 1;
-  totalModules = $('.module').size();
+  totalModules = $('.module').length;
   carregarDados("data.csv");
 
   $('html').keydown(function(e){
@@ -50,7 +51,11 @@ $(document).ready(function(){
               $("#map").animate({opacity : "1"}, 2000);
   					});
   					chart_visible = true;
-  				}
+          }
+          if (actualSection == 8 && !animation_running) {
+            animation_running = true;
+            startAnimation();
+          }
   			});
   		}
   	}
@@ -66,6 +71,219 @@ $(document).ready(function(){
   });
 
 });
+
+function startAnimation() {
+  console.log('startAnimation() - GO');
+  setTimeout(function () {
+    $('g#Navbar').show().addClass('animated fadeInUp');
+    $('g#your-region').show().addClass('animated fadeInRight');
+  }, 100);
+  setTimeout(function () {
+    $('g#Map g#Map-layer').show();
+    $('g#Map g#Markers').hide();
+    $('g#Map').show().addClass('animated fadeInUp')
+  }, 1000);
+  setTimeout(function () {
+    $('g#Map g#Markers').show().addClass('animated fadeIn bounce');
+  }, 1800);
+  setTimeout(function () {
+    $('g#Map g#Markers').removeClass('fadeIn');
+    $('g#Map g#Markers').show().addClass('animated infinite bounce');
+    $('g#Interests').show();
+  }, 2300);
+  setTimeout(function () {
+    $('g#books').show().addClass('animated fadeInLeft');
+  }, 2500);
+  setTimeout(function () {
+    $('g#Head').show().addClass('animated fadeInUp');
+  }, 2600);
+  setTimeout(function () {
+    $('g#eco').show().addClass('animated fadeInLeft');
+  }, 2700);
+  setTimeout(function () {
+    $('g#health').show().addClass('animated fadeInLeft');
+  }, 2900);
+  setTimeout(function () {
+    $('g#row1').show().addClass('animated bounceInUp');
+  }, 3100);
+  setTimeout(function () {
+    $('g#row2').show().addClass('animated bounceInUp');
+  }, 3250);
+  setTimeout(function () {
+    $('g#row3').show().addClass('animated bounceInUp');
+    $('path#line3').show().addClass('animated fadeIn');
+  }, 3450);
+  setTimeout(function () {
+    $('path#line4').show().addClass('animated fadeIn');
+    $('g#Idea1').show().addClass('animated fadeInUpBig');
+  }, 4150);
+  setTimeout(function () {
+    $('g#Idea1').show().removeClass();
+    $('path#line4').removeClass()
+    $('g#Idea1').show().addClass('animated bounceOutUp');
+    $('path#line4').addClass('animated fadeOut');
+  }, 7600);
+  setTimeout(function () {
+    //In
+    $('path#line2').show().addClass('animated fadeIn');
+    $('g#Idea2').show().addClass('animated fadeInUpBig');
+  }, 8100);
+  setTimeout(function () {
+    //OUT
+    $('g#Idea2').show().removeClass();
+    $('path#line2').removeClass()
+    $('g#Idea2').show().addClass('animated bounceOutUp');
+    $('path#line2').addClass('animated fadeOut');
+  }, 11100);
+  setTimeout(function () {
+    $('path#line1').show().addClass('animated fadeIn');
+    $('g#Idea3').show().addClass('animated fadeInUpBig');
+  }, 11300);
+  setTimeout(function () {
+    $('g#Idea3').show().removeClass();
+    $('path#line1').removeClass()
+    $('g#Idea3').show().addClass('animated bounceOutUp');
+    $('path#line1').addClass('animated fadeOut');
+  }, 14800);
+  setTimeout(function () {
+    $('g#your-region').removeClass();
+    $('g#Map').removeClass();
+    $('g#Interests').removeClass();
+    $('g#Table').removeClass();
+    $('g#your-region').addClass('animated fadeOutRight');
+    $('g#Map').addClass('animated bounceOutLeft');
+    $('g#Interests').addClass('animated bounceOutDown');
+    $('g#Table').addClass('animated fadeOutRight');
+  }, 15000);
+  setTimeout(function () {
+    $('g#your-competition').show().addClass('animated fadeInRight');
+    $('#box-suggestion').show().addClass('animated fadeInLeft');
+    $('#text-title-suggetion').show().addClass('animated bounceInUp');
+  }, 16000);
+  setTimeout(function () {
+    $('#text-suggestion1').show().addClass('animated zoomInLeft');
+  }, 17000);
+  setTimeout(function () {
+    $('#dismiss').show().addClass('animated fadeInLeft');
+    $('#save-suggestion').show().addClass('animated fadeInRight');
+  }, 18000);
+  setTimeout(function () {
+    $('#button-they').show().addClass('animated bounceIn');
+  }, 18500);
+  setTimeout(function () {
+    $('#save-suggestion').removeClass();
+    $('#save-suggestion').addClass('animated flash infinite');
+    $('#fullstar-added').show().addClass('animated zoomInRight');
+  }, 19000);
+  setTimeout(function () {
+    $('#button-you').show().addClass('animated bounceIn');
+  }, 20500);
+  setTimeout(function () {
+    $('#text-added').show().addClass('animated fadeInRight');
+  }, 20000);
+  setTimeout(function () {
+    $('#graph-lines').show().addClass('animated bounceIn');
+  }, 22500);
+  setTimeout(function () {
+    $('#text-suggestion1').removeClass();
+    $('#text-suggestion1').addClass('animated zoomOutUp');
+  }, 23000);
+  setTimeout(function () {
+    $('#text-suggestion2').show().addClass('animated zoomInDown');
+  }, 24000);
+  setTimeout(function () {
+    $('#button-evaluate').show().addClass('animated fadeInRight');
+  }, 25000);
+  setTimeout(function () {
+    $('#text-review').show().addClass('animated fadeInDown');
+  }, 26000);
+  setTimeout(function () {
+    $('g#suggestion').addClass('animated zoomOut');
+    $('g#graph').addClass('animated bounceOutLeft');
+    $('g#actionadded').addClass('animated fadeOutRight');
+    $('g#your-competition').addClass('animated fadeOutRight');
+  }, 29700);
+  setTimeout(function () {
+    $('g#your-audience').show().addClass('animated fadeInRight');
+    $('#table-header-audience').show().addClass('animated fadeIn');
+  }, 30500);
+  setTimeout(function () {
+    $('#row1_1_').show().addClass('animated fadeInDown');
+    $('#user-text1').show().addClass('animated bounceInRight');
+  }, 32000);
+  setTimeout(function () {
+    $('#row2_1_').show().addClass('animated fadeInDown');
+  }, 34500);
+  setTimeout(function () {
+    $('#user-text2').show().addClass('animated bounceInRight');
+  }, 35000);
+  setTimeout(function () {
+    $('#user-text2').show().addClass('animated bounceInRight');
+    $('#row3_1_').show().addClass('animated fadeInDown');
+  }, 37000);
+  setTimeout(function () {
+    $('#user-text3').show().addClass('animated bounceInRight');
+  }, 38000);
+  setTimeout(function () {
+    $('#row4').show().addClass('animated fadeInDown');
+  }, 39500);
+  setTimeout(function () {
+    $('g#user-table').addClass('animated fadeOutLeft');
+    $('g#your-audience').addClass('animated fadeOutRight');
+    $('g#navbar').addClass('animated fadeOutDownBig');
+  }, 43700);
+  setTimeout(function () {
+    console.log('Animation ended. Restarting');
+    $('svg g').removeClass();
+    $('svg path').removeClass();
+    $('#Navbar').hide();
+    $('#your-region').hide();
+    $('g#Map g#Map-layer').hide();
+    $('g#Map g#Markers').hide();
+    $('g#Map').hide();
+    $('g#Interests').hide();
+    $('g#books').hide();
+    $('g#Head').hide();
+    $('g#eco').hide();
+    $('g#health').hide();
+    $('g#row1').hide();
+    $('g#row2').hide();
+    $('g#row3').hide();
+    $('g#Idea1').hide();
+    $('g#Idea2').hide();
+    $('g#Idea3').hide();
+    $('path#line1').hide();
+    $('path#line2').hide();
+    $('path#line3').hide();
+    $('path#line4').hide();
+    $('g#your-competition').hide();
+    $('#box-suggestion').hide();
+    $('#text-title-suggetion').hide();
+    $('#text-suggestion1').hide();
+    $('#dismiss').hide();
+    $('#save-suggestion').hide();
+    $('#button-they').hide();
+    $('#fullstar-added').hide();
+    $('#button-you').hide();
+    $('#text-added').hide();
+    $('#graph-lines').hide();
+    $('#text-suggestion1').hide();
+    $('#text-suggestion2').hide();
+    $('#button-evaluate').hide();
+    $('#text-review').hide();
+    $('g#your-audience').hide();
+    $('#table-header-audience').hide();
+    $('#row1_1_').hide();
+    $('#row2_1_').hide();
+    $('#row3_1_').hide();
+    $('#row4').hide();
+    $('#user-text1').hide();
+    $('#user-text2').hide();
+    $('#user-text3').hide();
+    startAnimation();
+    animation_running = false;
+  }, 45000);
+}
 
 function carregarDados(file) {
   // get the data
