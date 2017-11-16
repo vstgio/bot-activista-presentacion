@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+  overflow: hidden;
 }
 
 ol, ul {
@@ -253,6 +254,16 @@ section.module.parallax-5 {
   text-align: center;
   width: 50%;
   float: left;
+}
+
+#charts text.barValue {
+  font-size: .8vw;
+}
+
+#charts g.tick line,
+#charts g.tick text {
+  fill: #999 !important;
+  color: #999 !important;
 }
 
 .chartTitle {

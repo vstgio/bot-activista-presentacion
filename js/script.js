@@ -112,19 +112,19 @@ function drawAxis() {
         //y.domain([0, d3.max(data[key], function(d) { return d.percentage; })]);
 
         // add the x Axis
-        chart.append("g")
-        .attr("transform", "translate(0," + box_height/ROWS + ")")
-        .call(d3.axisBottom(x)).selectAll(".tick").remove();
+        // chart.append("g")
+        // .attr("transform", "translate(0," + box_height/ROWS + ")")
+        // .call(d3.axisBottom(x)).selectAll(".tick").remove();
 
         // add the y Axis
-        chart.append("g")
-        .call(d3.axisLeft(y));
+        // chart.append("g")
+        // .call(d3.axisLeft(y));
 
         // Add title
         chart.append("svg:text")
          .attr("class", "chartTitle")
-         .attr("x", 20)
-         .attr("y", 10)
+         .attr("x", 0)
+         .attr("y", 0)
          .text(key.toUpperCase());
     	}
   	}
@@ -199,8 +199,9 @@ function drawValues() {
 		  .attr("text-anchor", "middle")
 		  .attr("opacity", 0)
 		  .attr("x", function(d) { return x(d.interests) + (x.bandwidth()/2); })
-		  .attr("y", function(d) { return ((d.percentage > 4.5) ? y(d.percentage) + 15 : y(d.percentage) - 5); })
-		  .text(function(d) { return Math.round(d.percentage*100)/100 + "%"; });
+		  .attr("y", function(d) { return ((d.percentage > 4.5) ? y(d.percentage) + 20 : y(d.percentage) - 10); })
+      .attr("fill", function(d) { return ((d.percentage > 4.5) ? 'white' : 'black'); })
+		  .text(function(d) { return (Math.round(d.percentage*100)/100).toFixed(1) + "%"; });
 
 		}
 	}
