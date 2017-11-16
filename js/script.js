@@ -47,7 +47,7 @@ $('html').keydown(function(e){
 		else {
 			actualSection = actualSection + 1;
 			$.when($("html, body").animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow')).then(function() {
-				if (actualSection == 4 && !chart_visible) {
+				if (actualSection == 5 && !chart_visible) {
           drawMap(box_width/COLUMNS+margin.left+margin.right, box_height/ROWS + margin.top + margin.bottom);
 					$.when(drawBars()).then(function() {
 						drawValues();
@@ -223,7 +223,22 @@ function drawMap (width, height) {
   var center = [40.410527, -3.693791];
   var map = L.map('map').setView(center, 14);
   var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png');
-  var circle = L.circle(center, { radius: 1000, color:"#000", weight: 1 });
+  var point = L.circle(center, { radius: 1, weight: 10 });
+  var circle = L.circle(center, { radius: 1000, color:"#000", weight: 1, className: "circleArea" });
   map.addLayer(layer);
+ 
+  map.addLayer(point);
   map.addLayer(circle);
+
+  circle.on('add', function(){
+  var myIcon = document.querySelector('.circleArea')
+  setTimeout(function(){
+    myIcon.setStyle({fillColor: '#dddddd'})
+  }, 1000)
+
+  setTimeout(function(){
+    myIcon.setStyle({fillColor: '#333'})
+  })
+})
 }
+
