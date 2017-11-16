@@ -1,10 +1,6 @@
 var actualSection;
-const upArrowKey = 38;
-const pageUpKey = 33;
-const homeKey = 36;
-const downArrowKey = 40;
-const pageDownKey = 34;
-const endKey = 35;
+const nextSlideKeys = [9, 13, 34, 35, 39, 40];
+const prevSlideKeys = [8, 33, 36, 37, 38];
 
 const INTEREST = "Global"
 const AGE_RANGE = "16-80";
@@ -36,38 +32,39 @@ $(document).ready(function(){
   actualSection = 1;
   totalModules = $('.module').size();
   carregarDados("data.csv");
-});
 
-$('html').keydown(function(e){
-	if (e.which == pageDownKey || e.which == downArrowKey) {
-		if (actualSection == totalModules) {
-			actualSection = 1;
-			$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
-		}
-		else {
-			actualSection = actualSection + 1;
-			$.when($("html, body").animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow')).then(function() {
-				if (actualSection == 5 && !chart_visible) {
-          drawMap(box_width/COLUMNS+margin.left+margin.right, box_height/ROWS + margin.top + margin.bottom);
-					$.when(drawBars()).then(function() {
-						drawValues();
-            $("#map").animate({opacity : "1"}, 2000);
-					});
-					chart_visible = true;
-				}
-			});
-		}
-	}
-	else if (e.which == pageUpKey || e.which == upArrowKey) {
-		if (actualSection == 1 || e.which == endKey) {
-			actualSection = totalModules;
-			$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
-		}
-		else {
-			actualSection = actualSection - 1;
-			$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
-		}
-	}
+  $('html').keydown(function(e){
+  	if (nextSlideKeys.indexOf(e.which) !== -1) {
+      e.preventDefault();
+  		if (actualSection == totalModules) {
+  			actualSection = 1;
+  			$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
+  		}
+  		else {
+  			actualSection = actualSection + 1;
+  			$.when($("html, body").animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow')).then(function() {
+  				if (actualSection == 5 && !chart_visible) {
+            drawMap(box_width/COLUMNS+margin.left+margin.right, box_height/ROWS + margin.top + margin.bottom);
+  					$.when(drawBars()).then(function() {
+  						drawValues();
+              $("#map").animate({opacity : "1"}, 2000);
+  					});
+  					chart_visible = true;
+  				}
+  			});
+  		}
+  	}
+  	else if (prevSlideKeys.indexOf(e.which) !== -1) {
+      e.preventDefault();
+      if (actualSection == 1) {
+        actualSection = totalModules;
+        $('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
+      }
+  		actualSection = actualSection - 1;
+  		$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
+  	}
+  });
+
 });
 
 function carregarDados(file) {
