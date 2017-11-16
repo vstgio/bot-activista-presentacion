@@ -126,8 +126,8 @@ function drawAxis() {
         // Add title
         chart.append("svg:text")
          .attr("class", "chartTitle")
-         .attr("x", 5)
-         .attr("y", 0)
+         .attr("x", 20)
+         .attr("y", 10)
          .text(key.toUpperCase());
     	}
   	}
