@@ -43,7 +43,7 @@ $(document).ready(function(){
   		else {
   			actualSection = actualSection + 1;
   			$.when($("html, body").animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow')).then(function() {
-  				if (actualSection == 5 && !chart_visible) {
+  				if (actualSection == 6 && !chart_visible) {
             drawMap(box_width/COLUMNS+margin.left+margin.right, box_height/ROWS + margin.top + margin.bottom);
   					$.when(drawBars()).then(function() {
   						drawValues();
