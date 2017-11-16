@@ -93,7 +93,7 @@ main {
 }
 
 .container {
-  max-width: 1300px;
+  width: 65vw;
   position: relative;
   top: 50%;
   left: 50%;
@@ -141,7 +141,7 @@ section.module p {
   line-height: 1.4;
   text-align: center;
   margin-bottom: 22px;
-  width: 60vw;
+  width: 65vw;
   margin: auto;
 }
 section.module p:last-child {
@@ -163,12 +163,12 @@ section.module.parallax {
 }
 section.module.parallax h1 {
   font-family: 'Saira Extra Condensed', sans-serif;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   font-size: 12vw;
   line-height: 1;
   font-weight: 900;
   text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 section.module.parallax h2 {
@@ -176,7 +176,7 @@ section.module.parallax h2 {
   font-size: 7vw;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 section.module.parallax-1 {
@@ -301,6 +301,13 @@ section.module.parallax-5 {
   float: left;
   opacity: 0;
 }
+#map svg path {
+  transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition:all 1s ease-in-out;
+  -o-transition:all 1s ease-in-out;
+}
 
 #mockup {
   width: 90vw;
@@ -311,4 +318,8 @@ section.module.parallax-5 {
 
 #contacts {
   font-size: 1.5vw;
+}
+
+#mainTitle {
+  color: rgba(255, 255, 255, 1);
 }
