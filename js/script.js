@@ -43,7 +43,7 @@ $(document).ready(function(){
   		else {
   			actualSection = actualSection + 1;
   			$.when($("html, body").animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow')).then(function() {
-  				if (actualSection == 6 && !chart_visible) {
+  				if (actualSection == 7 && !chart_visible) {
             drawMap(box_width/COLUMNS+margin.left+margin.right, box_height/ROWS + margin.top + margin.bottom);
   					$.when(drawBars()).then(function() {
   						drawValues();
@@ -218,7 +218,7 @@ function drawMap (width, height) {
   $("#map").width(width*2);
   $("#map").height((height*2) - 10);
 
-  var center = [40.410527, -3.693791];
+  var center = [40.414851, -3.699927];
   var map = L.map('map').setView(center, 14);
   var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png');
   var circle = L.circle(center, { radius: 1, color:"#000", weight: 1 });

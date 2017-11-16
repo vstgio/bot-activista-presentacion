@@ -338,3 +338,9 @@ section.module.parallax-6 {
 #mainTitle {
   color: rgba(255, 255, 255, 1);
 }
+#tomjerry {
+  width: auto;
+  height: 100vh;
+  display: block;
+  margin: 0 auto;
+}
