@@ -1,10 +1,6 @@
 var actualSection;
-const upArrowKey = 38;
-const pageUpKey = 33;
-const homeKey = 36;
-const downArrowKey = 40;
-const pageDownKey = 34;
-const endKey = 35;
+const nextSlideKeys = [9, 13, 34, 35, 39, 40];
+const prevSlideKeys = [8, 33, 36, 37, 38];
 
 const INTEREST = "Global"
 const AGE_RANGE = "16-80";
@@ -36,38 +32,39 @@ $(document).ready(function(){
   actualSection = 1;
   totalModules = $('.module').size();
   carregarDados("data.csv");
-});
 
-$('html').keydown(function(e){
-	if (e.which == pageDownKey || e.which == downArrowKey) {
-		if (actualSection == totalModules) {
-			actualSection = 1;
-			$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
-		}
-		else {
-			actualSection = actualSection + 1;
-			$.when($("html, body").animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow')).then(function() {
-				if (actualSection == 5 && !chart_visible) {
-          drawMap(box_width/COLUMNS+margin.left+margin.right, box_height/ROWS + margin.top + margin.bottom);
-					$.when(drawBars()).then(function() {
-						drawValues();
-            $("#map").animate({opacity : "1"}, 2000);
-					});
-					chart_visible = true;
-				}
-			});
-		}
-	}
-	else if (e.which == pageUpKey || e.which == upArrowKey) {
-		if (actualSection == 1 || e.which == endKey) {
-			actualSection = totalModules;
-			$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
-		}
-		else {
-			actualSection = actualSection - 1;
-			$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
-		}
-	}
+  $('html').keydown(function(e){
+  	if (nextSlideKeys.indexOf(e.which) !== -1) {
+      e.preventDefault();
+  		if (actualSection == totalModules) {
+  			actualSection = 1;
+  			$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
+  		}
+  		else {
+  			actualSection = actualSection + 1;
+  			$.when($("html, body").animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow')).then(function() {
+  				if (actualSection == 5 && !chart_visible) {
+            drawMap(box_width/COLUMNS+margin.left+margin.right, box_height/ROWS + margin.top + margin.bottom);
+  					$.when(drawBars()).then(function() {
+  						drawValues();
+              $("#map").animate({opacity : "1"}, 2000);
+  					});
+  					chart_visible = true;
+  				}
+  			});
+  		}
+  	}
+  	else if (prevSlideKeys.indexOf(e.which) !== -1) {
+      e.preventDefault();
+      if (actualSection == 1) {
+        actualSection = totalModules;
+        $('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
+      }
+  		actualSection = actualSection - 1;
+  		$('html, body').animate({ scrollTop: $("#section" + actualSection).offset().top }, 'slow');
+  	}
+  });
+
 });
 
 function carregarDados(file) {
@@ -115,18 +112,18 @@ function drawAxis() {
         //y.domain([0, d3.max(data[key], function(d) { return d.percentage; })]);
 
         // add the x Axis
-        chart.append("g")
-        .attr("transform", "translate(0," + box_height/ROWS + ")")
-        .call(d3.axisBottom(x)).selectAll(".tick").remove();
+        // chart.append("g")
+        // .attr("transform", "translate(0," + box_height/ROWS + ")")
+        // .call(d3.axisBottom(x)).selectAll(".tick").remove();
 
         // add the y Axis
-        chart.append("g")
-        .call(d3.axisLeft(y));
+        // chart.append("g")
+        // .call(d3.axisLeft(y));
 
         // Add title
         chart.append("svg:text")
          .attr("class", "chartTitle")
-         .attr("x", 5)
+         .attr("x", 0)
          .attr("y", 0)
          .text(key.toUpperCase());
     	}
@@ -202,8 +199,9 @@ function drawValues() {
 		  .attr("text-anchor", "middle")
 		  .attr("opacity", 0)
 		  .attr("x", function(d) { return x(d.interests) + (x.bandwidth()/2); })
-		  .attr("y", function(d) { return ((d.percentage > 4.5) ? y(d.percentage) + 15 : y(d.percentage) - 5); })
-		  .text(function(d) { return Math.round(d.percentage*100)/100 + "%"; });
+		  .attr("y", function(d) { return ((d.percentage > 4.5) ? y(d.percentage) + 20 : y(d.percentage) - 10); })
+      .attr("fill", function(d) { return ((d.percentage > 4.5) ? 'white' : 'black'); })
+		  .text(function(d) { return (Math.round(d.percentage*100)/100).toFixed(1) + "%"; });
 
 		}
 	}
